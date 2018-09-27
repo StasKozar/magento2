@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">city_listing.city_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="sync">
+                <url path="*/*/sync"/>
+                <class>primary</class>
+                <label translate="true">Synchronize</label>
+            </button>
+        </buttons>
+        <spinner>city_columns</spinner>
+        <deps>
+            <dep>city_listing.city_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="city_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">city_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Backend::content</aclResource>
+        <dataProvider class="Extension\Novaposhta\Ui\Component\DataProvider" name="city_listing_data_source">
+            <settings>
+                <requestFieldName>city_id</requestFieldName>
+                <primaryFieldName>city_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name="export_button"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="city_columns">
+        <column name="city_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">City ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="description">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">City Name UA</label>
+            </settings>
+        </column>
+        <column name="description_ru">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">City Name RU</label>
+            </settings>
+        </column>
+        <column name="ref">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Ref</label>
+            </settings>
+        </column>
+        <column name="updated_at">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

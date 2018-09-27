@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <novaposhta>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>UA</specificcountry>
+                <model>Extension\Novaposhta\Model\Carrier</model>
+                <name>Novaposhta Shipping</name>
+                <title>Novaposhta</title>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <api_url>https://api.novaposhta.ua/v2.0/json/</api_url>
+                <enable_log>0</enable_log>
+            </novaposhta>
+        </carriers>
+    </default>
+</config>

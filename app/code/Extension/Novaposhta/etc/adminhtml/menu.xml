@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Extension_Novaposhta::novaposhta" title="Novaposhta" translate="title" module="Extension_Novaposhta" sortOrder="15" action="adminhtml/novaposhta" resource="Magento_Backend::content"/>
+        <add id="Extension_Novaposhta::novaposhta_warehouse" title="Warehouses" translate="title" module="Extension_Novaposhta" sortOrder="0" parent="Extension_Novaposhta::novaposhta" action="novaposhta/warehouse" resource="Magento_Backend::content"/>
+        <add id="Extension_Novaposhta::novaposhta_city" title="Cities" translate="title" module="Extension_Novaposhta" sortOrder="30" parent="Extension_Novaposhta::novaposhta" action="novaposhta/city" resource="Magento_Backend::content"/>
+    </menu>
+</config>
